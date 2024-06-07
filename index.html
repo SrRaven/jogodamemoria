@@ -5,31 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
     <style>
+
+        body {
+            background-color: #688d69;
+        }
+        .instructions-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+}
+
+.instructions-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.start-game-btn {
+    padding: 10px 20px;
+    background-color: #688d69;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
         .game-board {
              display: grid;
              grid-template-columns: repeat(4, 1fr);
              grid-gap: 10px;
              max-width: 400px;
              margin: 0 auto;
+             justify-content: center;
+             
          }
  
          .card {
-    width: 100px;  /* Defina a largura da carta */
-    height: 150px; /* Defina a altura da carta */
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+             width: 150px;  /* Defina a largura da carta */
+            height: 150px; /* Defina a altura da carta */
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
          }
  
         .card.flipped {
              transform: rotateY(180deg);
          }
+
      </style>
 </head>
 <body>
-    <h1>jogo da memoria</h1>
+    <div class="instructions-screen">
+        <div class="instructions-content">
+            <h2>Instruções do Jogo da Memória</h2>
+            <p>Você tem que encontrar pares de cartas iguais.</p>
+            <p>Clique em duas cartas para virá-las.</p>
+            <p>Se as cartas forem iguais, elas permanecerão viradas.</p>
+            <p>Se as cartas forem diferentes, elas voltarão para a posição original.</p>
+            <button class="start-game-btn">Começar o Jogo</button>
+        </div>
+    </div>
+    <h1>Jogo da Memoria</h1>
     <div class="game-board"></div>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>

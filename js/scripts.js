@@ -111,3 +111,43 @@ function startGame() {
         });
     }, 3000);
 }
+
+
+document.querySelector('.restart-game-btn').addEventListener('click', function() {
+    console.log('Botão recarregar jogo clicado!');
+
+    // Limpar todas as cartas viradas
+    const flippedCards = document.querySelectorAll('.card.flipped');
+
+    // Habilitar o tabuleiro
+    lockBoard = false;
+
+    // Selecionar novas imagens aleatórias
+    const newSelectedImages = getRandomImages(allImages, 8);
+    let cards = newSelectedImages.flatMap(img => [{ id: img, img }, { id: img, img }]);
+
+    // Embaralhar as cartas novamente
+    const shuffledCards = shuffleArray(cards);
+
+    const gameBoard = document.querySelector('.game-board');
+    gameBoard.innerHTML = ''; // Limpar o tabuleiro
+    shuffledCards.forEach((card) => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.dataset.cardId = card.id;
+
+        const frontFace = document.createElement('div');
+        frontFace.classList.add('front-face');
+        frontFace.style.backgroundImage = `url(${card.img})`;
+
+        const backFace = document.createElement('div');
+        backFace.classList.add('back-face');
+
+        cardElement.appendChild(frontFace);
+        cardElement.appendChild(backFace);
+        gameBoard.appendChild(cardElement);
+    });
+
+    // Reiniciar o jogo
+    startGame();
+});

@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <title>Memory Game</title>
     <style>
         body {
@@ -11,6 +14,7 @@
             background-size: cover;
             background-position: center;
             backface-visibility: hidden;
+            font-family: 'Varela Round', sans-serif;
         }
         .instructions-screen {
             position: fixed;
@@ -76,6 +80,19 @@
         .card.flipped .back-face {
             transform: rotateY(-180deg);
         }
+
+        .restart-game-btn {
+    background-color: #4CAF50 !important; /* Cor de fundo do botão */
+    color: #ffffff !important; /* Cor do texto do botão */
+    padding: 10px 20px !important; /* Espaçamento interno do botão */
+    border: none !important; /* Remover borda do botão */
+    border-radius: 5px !important; /* Arredondar cantos do botão */
+    cursor: pointer !important; /* Mudar cursor para uma mão quando o botão é hover */
+  }
+  
+  .restart-game-btn:hover {
+    background-color: #3e8e41 !important; /* Cor de fundo do botão quando hover */
+  }
     </style>
 </head>
 <body>
@@ -91,6 +108,7 @@
     </div>
     <h1>Jogo da Memoria</h1>
     <div class="game-board"></div>
+    <button class="restart-game-btn">Recomeçar o Jogo</button>
     <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -66,3 +66,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.varela-round-regular {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+

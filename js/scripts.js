@@ -62,14 +62,14 @@ let lockBoard = false;
 function flipCard() {
     if (lockBoard) return;
     if (this === flippedCard) return;
-
+  
     this.classList.toggle('flipped');
-
+  
     if (!flippedCard) {
         flippedCard = this;
         return;
     }
-
+  
     if (flippedCard.dataset.cardId === this.dataset.cardId) {
         // Cartas correspondentes, não faça nada
         flippedCard = null;
@@ -83,8 +83,12 @@ function flipCard() {
             lockBoard = false;
         }, 1000);
     }
-}
-
+  
+    if (jogoTerminou()) {
+        // Se o jogo terminou, inicie a animação de "thumbs up"
+        document.querySelector('.thumb').classList.add('animate-thumbs-up');
+    }
+  }
 const instructionsScreen = document.querySelector('.instructions-screen');
 const startGameBtn = document.querySelector('.start-game-btn');
 
@@ -150,4 +154,5 @@ document.querySelector('.restart-game-btn').addEventListener('click', function()
 
     // Reiniciar o jogo
     startGame();
+    
 });

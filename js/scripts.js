@@ -62,14 +62,14 @@ let lockBoard = false;
 function flipCard() {
     if (lockBoard) return;
     if (this === flippedCard) return;
-  
+
     this.classList.toggle('flipped');
-  
+
     if (!flippedCard) {
         flippedCard = this;
         return;
     }
-  
+
     if (flippedCard.dataset.cardId === this.dataset.cardId) {
         // Cartas correspondentes, não faça nada
         flippedCard = null;
@@ -83,12 +83,19 @@ function flipCard() {
             lockBoard = false;
         }, 1000);
     }
-  
-    if (jogoTerminou()) {
-        // Se o jogo terminou, inicie a animação de "thumbs up"
-        document.querySelector('.thumb').classList.add('animate-thumbs-up');
+
+    // Verificar se o jogo terminou
+    if (checkAllCardsFlipped()) {
+        const gameOverScreen = document.querySelector('.game-over-screen');
+        gameOverScreen.style.visibility = 'visible';
     }
-  }
+}
+
+function checkAllCardsFlipped() {
+    const cards = document.querySelectorAll('.card');
+    return Array.from(cards).every(card => card.classList.contains('flipped'));
+}
+
 const instructionsScreen = document.querySelector('.instructions-screen');
 const startGameBtn = document.querySelector('.start-game-btn');
 
@@ -116,12 +123,12 @@ function startGame() {
     }, 3000);
 }
 
-
 document.querySelector('.restart-game-btn').addEventListener('click', function() {
     console.log('Botão recarregar jogo clicado!');
 
     // Limpar todas as cartas viradas
     const flippedCards = document.querySelectorAll('.card.flipped');
+    flippedCards.forEach(card => card.classList.remove('flipped'));
 
     // Habilitar o tabuleiro
     lockBoard = false;
@@ -154,5 +161,4 @@ document.querySelector('.restart-game-btn').addEventListener('click', function()
 
     // Reiniciar o jogo
     startGame();
-    
 });

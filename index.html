@@ -98,8 +98,32 @@
     transform: translateX(-50%); /* Corrige o alinhamento horizontal */
     font-family: 'Varela Round', sans-serif;
 }
-  
-  
+
+.game-over-screen {
+    display: none;
+    
+  }
+  .game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+}
+
+.game-over-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
   .restart-game-btn:hover {
     background-color: #3e8e41 !important; /* Cor de fundo do botão quando hover */
   }
@@ -119,6 +143,12 @@
     <h1>Jogo da Memoria</h1>
     <div class="game-board"></div>
     <button class="restart-game-btn">Recomeçar o Jogo</button>
+    <div class="game-over-screen">
+        <div class="game-over-content">
+            <h2>Parabéns! Você completou o jogo!</h2>
+            <button class="restart-game-btn">Recomeçar o Jogo</button>
+        </div>
+    </div>
     <script src="js/scripts.js"></script>
 </body>
 </html>

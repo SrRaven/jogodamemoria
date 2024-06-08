@@ -164,3 +164,14 @@ document.querySelectorAll('.restart-game-btn').forEach(button => {
         startGame();
     });
 });
+document.querySelectorAll('.restart-game-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        console.log('Botão recarregar jogo clicado!');
+
+        // ... (outro código para reiniciar o jogo)
+
+        // Ocultar a tela de fim de jogo
+        const gameOverScreen = document.querySelector('.game-over-screen');
+        gameOverScreen.style.visibility = 'hidden';
+    });
+});

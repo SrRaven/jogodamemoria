@@ -38,7 +38,7 @@
         }
         .start-game-btn {
             padding: 10px 20px;
-            background-color: #688d69;
+            background-color: #b33434;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -82,13 +82,21 @@
         }
 
         .restart-game-btn {
-    background-color: #4CAF50 !important; /* Cor de fundo do botão */
+    background-color: #b33434 !important; /* Cor de fundo do botão */
     color: #ffffff !important; /* Cor do texto do botão */
     padding: 10px 20px !important; /* Espaçamento interno do botão */
     border: none !important; /* Remover borda do botão */
     border-radius: 5px !important; /* Arredondar cantos do botão */
     cursor: pointer !important; /* Mudar cursor para uma mão quando o botão é hover */
-  }
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+    display: block; /* Faz o botão ocupar toda a largura disponível */
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    top: 20px; /* Posiciona o botão 20px a partir do topo */
+    left: 50%; /* Alinha o botão horizontalmente ao meio */
+    transform: translateX(-50%); /* Corrige o alinhamento horizontal */
+    font-family: 'Varela Round', sans-serif;
+}
+  
   
   .restart-game-btn:hover {
     background-color: #3e8e41 !important; /* Cor de fundo do botão quando hover */

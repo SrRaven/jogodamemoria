@@ -34,7 +34,7 @@ function shuffleArray(array) {
 }
 
 const shuffledCards = shuffleArray(cards);
-console.log(shuffledCards); // Imprimindo o array embaralhado
+console.log(shuffledCards); // Imprimi o array embaralhado
 
 const gameBoard = document.querySelector('.game-board');
 gameBoard.style.display = 'grid';

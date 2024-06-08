@@ -74,7 +74,7 @@ function flipCard() {
         // Cartas correspondentes, não faça nada
         flippedCard = null;
     } else {
-        // Cartas não correspondentes, volte-as
+        // Cartas não correspondentes, volte a posição virada
         lockBoard = true;
         setTimeout(() => {
             flippedCard.classList.remove('flipped');
@@ -167,9 +167,6 @@ document.querySelectorAll('.restart-game-btn').forEach(button => {
 document.querySelectorAll('.restart-game-btn').forEach(button => {
     button.addEventListener('click', function() {
         console.log('Botão recarregar jogo clicado!');
-
-        // ... (outro código para reiniciar o jogo)
-
         // Ocultar a tela de fim de jogo
         const gameOverScreen = document.querySelector('.game-over-screen');
         gameOverScreen.style.visibility = 'hidden';

@@ -11,7 +11,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-    background-attachment: fixed; /* Adicione esta linha para posicionar a imagem de fundo de maneira fixa */
+    background-attachment: fixed; 
 }
 
 

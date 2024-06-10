@@ -86,8 +86,7 @@ function flipCard() {
 
     // Verificar se o jogo terminou
     if (checkAllCardsFlipped()) {
-        const gameOverScreen = document.querySelector('.game-over-screen');
-        gameOverScreen.style.visibility = 'visible';
+        showGameOverScreen();
     }
 }
 
@@ -164,11 +163,24 @@ document.querySelectorAll('.restart-game-btn').forEach(button => {
         startGame();
     });
 });
+
+function showGameOverScreen() {
+    document.querySelector('.game-over-screen').style.visibility = 'visible';
+    var gameOverMusic = document.getElementById('game-over-music');
+    gameOverMusic.play();
+}
+
+function restartGame() {
+    // Lógica para reiniciar o jogo
+    var gameOverMusic = document.getElementById('game-over-music');
+    gameOverMusic.pause();
+    gameOverMusic.currentTime = 0;
+
+    // Ocultar a tela de fim de jogo
+    const gameOverScreen = document.querySelector('.game-over-screen');
+    gameOverScreen.style.visibility = 'hidden';
+}
+
 document.querySelectorAll('.restart-game-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        console.log('Botão recarregar jogo clicado!');
-        // Ocultar a tela de fim de jogo
-        const gameOverScreen = document.querySelector('.game-over-screen');
-        gameOverScreen.style.visibility = 'hidden';
-    });
+    button.addEventListener('click', restartGame);
 });
